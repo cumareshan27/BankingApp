@@ -18,8 +18,9 @@ import com.revature.models.Account;
 public class AccountRepository implements GenericRepository<Account> {
 
 	@Override
-	public Account add(Account t) {
+	public Account add(Account a) {
 		// TODO Auto-generated method stub
+	
 		return null;
 	}
 
@@ -36,13 +37,13 @@ public class AccountRepository implements GenericRepository<Account> {
 	}
 
 	@Override
-	public boolean update(Account t) {
+	public boolean update(Account a) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean delete(Account t) {
+	public boolean delete(Account a) {
 		// TODO Auto-generated method stub
 		return false;
 	}
