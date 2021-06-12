@@ -1,9 +1,8 @@
 package com.revature.models;
 
-import com.revature.repositories.GenericRepository;
-
 public class User{
 
+	public int id;
 	public String firstname;
 	public String lastname;
 	public String address1;
@@ -13,6 +12,8 @@ public class User{
 	public String zipCode;
 	public String mobilephonenumber; 
 	public String homephonenumber;
+	
+	
 	
 	
 		public User(String firstname, String lastname, String address1, String address2, String city, String state,
@@ -30,6 +31,39 @@ public class User{
 	}
 		
 		
+		
+		
+	
+
+
+
+
+	public User() {
+			// TODO Auto-generated constructor stub
+		}
+
+
+
+
+
+
+
+
+
+	public int getId() {
+			return id;
+		}
+
+
+
+
+		public void setId(int id) {
+			this.id = id;
+		}
+
+
+
+
 	public String getFirstname() {
 		return firstname;
 	}

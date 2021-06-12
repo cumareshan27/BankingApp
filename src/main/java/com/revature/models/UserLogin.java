@@ -10,11 +10,12 @@ public class UserLogin{
 	public int userId; 
 	
 	
-	public UserLogin(String username, String useremail, String password, int userId) {
+	public UserLogin(String username, String useremail, String password, String usertype, int userId) {
 		super();
 		this.username = username;
 		this.useremail = useremail;
 		this.password = password;
+		this.usertype = usertype;
 		this.userId = userId;
 		
 	}
@@ -25,6 +26,10 @@ public class UserLogin{
 		this.useremail = useremail;
 		this.password = password;
 		
+		
+	}
+	
+	public UserLogin() {
 		
 	}
 
