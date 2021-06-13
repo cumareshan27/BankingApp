@@ -17,7 +17,7 @@ public class UserDAO implements GenericRepository<User>{
 	public User add(User u) {
 		// TODO Auto-generated method stub
 		
-		String sql = "insert into values (default, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) returning *;";
+		String sql = "insert into users values (default, ?, ?, ?, ?, ?, ?, ?, ?, ?) returning *;";
 		
 		try {
 			
@@ -42,7 +42,7 @@ public class UserDAO implements GenericRepository<User>{
 			System.out.println("Inserted record's ID: " + generatedKey);
 
 		} catch(Exception e) {
-			
+			System.out.println("Exception" + e);
 		}
 		return null;
 	}

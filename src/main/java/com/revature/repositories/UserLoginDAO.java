@@ -23,11 +23,12 @@ public class UserLoginDAO implements GenericRepository<UserLogin> {
 		
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setString(2, l.getUsername());
-			ps.setString(3, l.getPassword());
-			ps.setString(4, l.getUseremail());
-			ps.setString(5, l.getUserType());
-			ps.setInt(6, user.getId());
+			ps.setString(1, l.getUsername());
+			ps.setString(2, l.getPassword());
+			ps.setString(3, l.getUseremail());
+			ps.setString(4, l.getUserType());
+			ps.setInt(5, l.getUserId());
+			ps.execute();
 		} 
 		catch(Exception e) {
 			System.out.println("Exxception " + e);
