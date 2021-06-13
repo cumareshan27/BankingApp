@@ -14,7 +14,7 @@ public class AccountDAO implements GenericRepository<Account>  {
 	@Override
 	public Account add(Account a) {
 		// TODO Auto-generated method stub
-		String sql = "insert into account values (default, ?, ?, ?, ?) returning *;";
+		String sql = "insert into account values (default, ?, ?, ?, ?, ?) returning *;";
 		
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -22,6 +22,7 @@ public class AccountDAO implements GenericRepository<Account>  {
 			ps.setString(2,a.getAccountType());
 			ps.setDouble(3, a.getAccountBalance());
 			ps.setInt(4, a.getUserId());
+			ps.setString(5, a.getAccountStatus());
 			ps.execute();
 		}
 		

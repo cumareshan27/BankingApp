@@ -46,12 +46,15 @@ public class Driver {
 				switch(choice) {
 				
 				case 1: {
-					//IF the cusotmer logs in show the accouting AccountService.showtransactionmenu() 
+					//IF the cusotomer logs in show the accouting AccountService.showtransactionmenu() 
 					///If the employee logins show the employee menu to approove account and view all the customer accounts
 					System.out.println("Please enter your username: ");
 					String username1 = scanner.next();
 					System.out.println("Please enter your password: ");
 					String password2 = scanner.next();
+					// get customer id
+					UserLogin user =userlogin.getByUserName(username1);
+					AccountService accountService = new AccountService(user.getUsername(),String.valueOf(user.getUserId()));
 					break;
 				}
 				

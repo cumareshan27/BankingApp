@@ -42,7 +42,7 @@ void getPReviousTransaction() {
 
 
 	
- void showtransactionmenu() {
+ public void showtransactionmenu() {
 	 
 	 char option='\0';
 	 Scanner scanner = new Scanner(System.in);

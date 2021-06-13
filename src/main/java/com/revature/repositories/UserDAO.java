@@ -55,6 +55,33 @@ return null;	}
 	@Override
 	public User getById(Integer id) {
 		// TODO Auto-generated method stub
+		try {
+			String sql = "\"select * from users where id = ?;\";";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1,  id);
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				
+				User u = new User();
+				
+//				ps.(u.id(setUserId(rs.getInt("id")));
+				
+				u.setId(rs.getInt("id"));
+				u.setFirstname(rs.getString("first_name"));
+				u.setLastname(rs.getString("last_name"));
+				u.setMobilephonenumber(rs.getString("phonenumber"));
+				
+				System.out.println("You are logged in and Welcome to the banking app");
+			
+			} else {}
+			
+			System.out.println("Customer not found");
+			
+		} catch(Exception e) {
+			System.out.println(e);
+		}
 		
 		return null;
 	}

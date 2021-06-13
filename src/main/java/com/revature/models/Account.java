@@ -6,17 +6,24 @@ public class Account {
 		private int accountNumber;	
 		String accountType;
 		double accountBalance;
+		String accountStatus;
 		int userId;
 		
 		
 		
-		public Account(int accountId, int accountNumber, String accountType, double accountBalance, int userId) {
+		public Account(int accountId, int accountNumber, String accountType, double accountBalance, String accountStatus, int userId) {
 			super();
 			this.accountId = accountId;
 			this.accountNumber = accountNumber;
 			this.accountType = accountType;
 			this.accountBalance = accountBalance;
 			this.userId = userId;
+		}
+		public String getAccountStatus() {
+			return accountStatus;
+		}
+		public void setAccountStatus(String accountStatus) {
+			this.accountStatus = accountStatus;
 		}
 		public int getAccountId() {
 			return accountId;

@@ -39,6 +39,7 @@ public class UserLoginDAO implements GenericRepository<UserLogin> {
 	@Override
 	public UserLogin getById(Integer id) {
 		// TODO Auto-generated method stub
+		
 		return null;
 	}
 	
@@ -60,23 +61,18 @@ public class UserLoginDAO implements GenericRepository<UserLogin> {
 			if (rs.next()) {
 				
 				System.out.println("If loop inside of the UserloginDAO getbyusername method" + rs);
-//				loginuser.setuserloginId(rs.getInt());
-//				loginuser.setUsername(rs.getString(usename));
-//				loginuser.set()
-//				loginuser.setUseremail(rs.getNString();
-				
-//				public String userloginId;
-//				public String username;
-//				public String useremail; 
-//				public String password; 
-//				public String usertype;
-//				public int userId; 
+				loginuser.setUserId(rs.getInt("user_id_fk"));
+				loginuser.setUsername(rs.getString("user_name"));
+				loginuser.setPassword(rs.getString("password"));
+				loginuser.setUseremail(rs.getString("user_email"));
+				loginuser.setUserType(rs.getString("usertype"));
+				 
 			}
 			
 		} catch(Exception e) {
 			System.out.println(e);
 		}
-		return null;
+		return loginuser;
 	}
 
 	@Override
