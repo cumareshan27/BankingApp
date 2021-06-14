@@ -95,6 +95,19 @@ return null;	}
 	@Override
 	public boolean update(User u) {
 		// TODO Auto-generated method stub
+		
+String sql = "update users set phonenumber = ?, where id = ? returning *;";
+		
+		try {
+			
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, u.homephonenumber);
+			
+			ps.execute();
+			System.out.println("Phone number updated: ");
+		} catch(Exception e) {
+			System.out.println("Exception" + e);
+		}
 		return false;
 	}
 

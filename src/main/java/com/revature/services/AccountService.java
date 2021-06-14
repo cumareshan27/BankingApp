@@ -40,7 +40,54 @@ void getPReviousTransaction() {
 	}
 }
 
-
+public void openaccountmainmenu() {
+	 char option='\0';
+	 Scanner scanner = new Scanner(System.in);
+	 
+	 System.out.println("Welcome to \"New Account Opening  \" ");
+	 System.out.println("Welcome to \"Get the custoer ID TBD \" ");
+	 System.out.println("\n");
+	 System.out.println("A. What type of account do you want to open ");
+	 System.out.println("Enter checking or saving");
+	 System.out.println("B. How much do you want deposit");
+	 System.out.println("C. Exit ");
+	 
+	 do
+	 {
+		 System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+		 System.out.println("Enter an option"); 
+		 System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+		 option = scanner.next().charAt(0);
+		 System.out.println("\n");
+		 
+		 
+		 switch(option) {
+		 case 'A':
+			 System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+			 System.out.println("Wha type of account do you want to open"); 
+			 System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+			 option = scanner.next().charAt(0);
+			 System.out.println("\n");
+			 break;
+			 
+		 case 'B':
+			 System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			 System.out.println("Account type:  ");
+			 System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			 System.out.println("\n");
+			 break;
+			 
+		 case 'C':
+			 System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			 System.out.println("Enter an amount to deposit ");
+			 System.out.println("Deposit = ");
+			 System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			 System.out.println("\n");
+			 break;	 
+			 
+		 }
+	 } while (true);
+}
 	
  public void showtransactionmenu() {
 	 

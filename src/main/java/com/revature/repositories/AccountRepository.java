@@ -35,6 +35,11 @@ public class AccountRepository implements GenericRepository<Account> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public List<Account> getInstance(){
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	@Override
 	public boolean update(Account a) {

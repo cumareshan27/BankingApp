@@ -12,7 +12,9 @@ import com.revature.services.AccountService;
 public class Driver {
 	
 	public static void main(String[] args) {
-	
+		
+		
+	AccountDAO accdao = new AccountDAO();
 	new AccountDAO();
 	//ar.add(new Account(23, 123, "Saving", 123, 456));
 	
@@ -55,6 +57,8 @@ public class Driver {
 					// get customer id
 					UserLogin user =userlogin.getByUserName(username1);
 					AccountService accountService = new AccountService(user.getUsername(),String.valueOf(user.getUserId()));
+					accountService.openaccountmainmenu();
+					accountService.showtransactionmenu();
 					break;
 				}
 				

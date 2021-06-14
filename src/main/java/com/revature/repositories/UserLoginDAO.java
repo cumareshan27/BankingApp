@@ -43,6 +43,28 @@ public class UserLoginDAO implements GenericRepository<UserLogin> {
 		return null;
 	}
 	
+	public UserLogin getByUserNameAndPassword(String username, String password) {
+		
+		String sql = "select * from usercredentials returning * ;" ;
+		
+		try{
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, username);
+			ps.setString(2, password);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+				loginuser.setUserId(rs.getInt("loginid"));
+				loginuser.setUsername(rs.getString("user_name"));
+				loginuser.setPassword(rs.getString("password"));
+				loginuser.setUseremail(rs.getString("user_email"));
+				loginuser.setUserType(rs.getString("usertype"));
+				
+			}
+		} catch (Exception e) {
+			
+		}
+		return null;
+	}
 	
 	public UserLogin getByUserName(String usename) {
 		// TODO Auto-generated method stub
