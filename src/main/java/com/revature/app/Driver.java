@@ -37,6 +37,7 @@ public class Driver {
 	// Scanner for collecting user input
 		Scanner scanner = new Scanner(System.in);
 		int choice = scanner.nextInt();
+		scanner.nextLine();
 		
 		UserLoginDAO loginDAO = new UserLoginDAO();
 		
@@ -94,29 +95,29 @@ public class Driver {
 					
 					System.out.println("You are a new registration screen, TBD");
 					System.out.println("Please enter FirstName: ");
-					String firstname = scanner.next();
+					String firstname = scanner.nextLine();
 					System.out.println("Please enter LastName: ");
-					String lastname = scanner.next();
+					String lastname = scanner.nextLine();
 					System.out.println("Please enter Address 1: ");
-					String address1 = scanner.next();
+					String address1 = scanner.nextLine();
 					System.out.println("Please enter Address 2: ");
-					String address2 = scanner.next();
+					String address2 = scanner.nextLine();
 					System.out.println("Please enter City: ");
-					String city = scanner.next();
+					String city = scanner.nextLine();
 					System.out.println("Please enter State: ");
-					String state = scanner.next();
+					String state = scanner.nextLine();
 					System.out.println("Please enter Zip: ");
-					String zip = scanner.next();
+					String zip = scanner.nextLine();
 					System.out.println("Please enter Home Number: ");
-					String homenumber = scanner.next();
+					String homenumber = scanner.nextLine();
 					System.out.println("Please enter Mobile Number: ");
-					String mobilenumber = scanner.next();
+					String mobilenumber = scanner.nextLine();
 					System.out.println("Please enter your username: ");
-					String username = scanner.next();
+					String username = scanner.nextLine();
 					System.out.println("Please enter your password: ");
-					String password = scanner.next();
+					String password = scanner.nextLine();
 					System.out.println("Please enter your email");
-					String email = scanner.next();
+					String email = scanner.nextLine();
 					User user = new User(firstname, lastname, address1, address2, city, state, zip, homenumber, mobilenumber);
 					UserDAO dao= new UserDAO();
 					dao.add(user);

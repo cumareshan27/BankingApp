@@ -22,6 +22,10 @@ public class AccountService {
 		
 	}
 	
+public AccountService(int i, String custId) {
+		// TODO Auto-generated constructor stub
+	}
+
 void deposit(int amount) {
 	if(amount != 0  ) {
 		balance = balance + amount;
@@ -239,6 +243,7 @@ while(option != 'E');
 		System.out.println("Enter Amount to be withdrawn");
 		int b = scanner.nextInt();
 		dao.deductAmot(b, user.getUserId(),acc.get(count-1).getAccountNumber());
+		AppLogger.logger.info("Amount withdrwan. " + dao.deductAmot(b, user.getUserId(),acc.get(count-1).getAccountNumber()));
 	}
 	 System.out.println("F. Exit ");
 	 
