@@ -50,15 +50,42 @@ public class Driver {
 				case 1: {
 					//IF the cusotomer logs in show the accouting AccountService.showtransactionmenu() 
 					///If the employee logins show the employee menu to approove account and view all the customer accounts
+					/*
+					 * If employe log in he should be presented with the employee menu
+					 * 
+					 * 
+					 * 
+					 * 
+					 */
 					System.out.println("Please enter your username: ");
 					String username1 = scanner.next();
 					System.out.println("Please enter your password: ");
 					String password2 = scanner.next();
 					// get customer id
-					UserLogin user =userlogin.getByUserName(username1);
+					UserLogin user =userlogin.getByUserNameAndPassword(username1,password2);
 					AccountService accountService = new AccountService(user.getUsername(),String.valueOf(user.getUserId()));
-					accountService.openaccountmainmenu();
-					accountService.showtransactionmenu();
+					if(user.getUseremail()!= null)
+					{
+						if(user.getUserType().equalsIgnoreCase("customer"))
+						{
+							System.out.println("Customer");
+							accountService.customerselection(user);
+						}
+						else
+						{
+							System.out.println("Employee");
+							accountService.showemployeemenu();
+						}
+							
+						//AccountService accountService = new AccountService(user.getUsername(),String.valueOf(user.getUserId()));
+					//	accountService.openaccountmainmenu();
+						accountService.showtransactionmenu(user);	
+					}
+					else
+					{
+						System.out.println("Invalid Email or Password!!");
+					}
+					
 					break;
 				}
 				

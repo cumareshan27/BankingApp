@@ -3,6 +3,8 @@ package com.revature.repositories;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.revature.models.User;
@@ -44,13 +46,14 @@ public class UserLoginDAO implements GenericRepository<UserLogin> {
 	}
 	
 	public UserLogin getByUserNameAndPassword(String username, String password) {
-		
-		String sql = "select * from usercredentials returning * ;" ;
+		UserLogin loginuser = new UserLogin();
+		String sql = "select * from usercredentials where user_name = ? and password = ?;" ;
 		
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, username);
 			ps.setString(2, password);
+			ps.execute();
 			ResultSet rs = ps.executeQuery();
 			if(rs.next()) {
 				loginuser.setUserId(rs.getInt("loginid"));
@@ -61,9 +64,9 @@ public class UserLoginDAO implements GenericRepository<UserLogin> {
 				
 			}
 		} catch (Exception e) {
-			
+			System.out.println(e);
 		}
-		return null;
+		return loginuser;
 	}
 	
 	public UserLogin getByUserName(String usename) {
@@ -100,7 +103,29 @@ public class UserLoginDAO implements GenericRepository<UserLogin> {
 	@Override
 	public List<UserLogin> getAll() {
 		// TODO Auto-generated method stub
+		List<UserLogin> list = new ArrayList<UserLogin>();
+		String sql = "select * from customers where employee = true;";
+		try {
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				//Customer c = new Customer();
+				loginuser.setUserId(rs.getInt("user_id_fk"));
+				loginuser.setUsername(rs.getString("user_name"));
+				loginuser.setPassword(rs.getString("password"));
+				loginuser.setUseremail(rs.getString("user_email"));
+				loginuser.setUserType(rs.getString("usertype"));
+			//	loginuser.setAccounts(AccountRepository.getInstance().getAllByCustomerId(loginuser.getId()));
+				list.add(loginuser);
+			}
+			
+			return list;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 		return null;
+		//return null;
 	}
 
 	@Override
@@ -114,5 +139,7 @@ public class UserLoginDAO implements GenericRepository<UserLogin> {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	
 
 }

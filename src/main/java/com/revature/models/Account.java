@@ -19,6 +19,10 @@ public class Account {
 			this.accountBalance = accountBalance;
 			this.userId = userId;
 		}
+		
+		public Account() {
+			
+		}
 		public String getAccountStatus() {
 			return accountStatus;
 		}
@@ -54,6 +58,13 @@ public class Account {
 		}
 		public void setUserId(int userId) {
 			this.userId = userId;
+		}
+
+		@Override
+		public String toString() {
+			return "Account [accountId=" + accountId + ", accountNumber=" + accountNumber + ", accountType="
+					+ accountType + ", accountBalance=" + accountBalance + ", accountStatus=" + accountStatus
+					+ ", userId=" + userId + "]";
 		}
 		
 		
